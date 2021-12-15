@@ -1,0 +1,120 @@
+*{
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.student_table{
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  font-size: 14px;
+  background: white;
+  max-width: 70%;
+  width: 70%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th {
+  font-weight: normal;
+  border-bottom: 2px solid;
+  padding: 10px 8px;
+}
+
+tr:hover td {
+  background-color: #f8edeb;
+}
+
+th:hover {
+  background-color: #e8e8e4;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+  padding: 9px 8px;
+  transition: .3s linear;
+}
+
+.settings{
+  display: flex;
+  flex-direction: column;
+  padding:25px;
+ }
+
+.bad_marks_button>button{
+  font-size: 12px;
+  height:40px;
+  width:150px;
+}
+
+.clear_filters{
+  font-size: 12px;
+  height:40px;
+  width:150px;
+}
+
+.bottom_buttons{
+  display: flex;
+  justify-content: space-around;
+  padding:15px;
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+}
+
+.search_input{
+  width: 300px;
+}
+
+.mark_filter{
+  display: flex;
+  flex-direction: column;
+}
+
+.date_filter{
+  display: flex;
+  flex-direction: column;
+}
+
+.filters{
+  display: flex;
+  justify-content: space-around;
+  padding:15px;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  padding:15px;
+}
+
+.bad_marks{
+  color:red;
+}
+
+.selected{
+  font-weight: bold;
+  background-color: yellow;
+}
+
+.popUp {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+
+  width: 20%;
+  height: 10%;
+
+  padding: 40px;
+
+  background: #e8e8e4;
+  border: 1px solid;
+}
+
+
+.popUp_buttons{
+  display: flex;
+  justify-content: space-around;
+}

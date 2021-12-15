@@ -1,0 +1,74 @@
+{
+  "studentArray": [
+    {
+      "lastName": "Шевцов",
+      "firstName": "Егор",
+      "surname": "Денисович",
+      "birthDate": "10.02.2011",
+      "GPA": 4.9
+    },
+    {
+      "lastName": "Горелов",
+      "firstName": "Владимир",
+      "surname": "Кириллович",
+      "birthDate": "20.12.2005",
+      "GPA": 2.07
+    },
+    {
+      "lastName": "Макаров",
+      "firstName": "Савелий",
+      "surname": "Михайлович",
+      "birthDate": "27.03.2014",
+      "GPA": 4.39
+    },
+    {
+      "lastName": "Мальцев",
+      "firstName": "Александр",
+      "surname": "Семёнович",
+      "birthDate": "05.06.2005",
+      "GPA": 4.72
+    },
+    {
+      "lastName": "Герасимов",
+      "firstName": "Роман",
+      "surname": "Егорович",
+      "birthDate": "24.11.2005",
+      "GPA": 3.59
+    },
+    {
+      "lastName": "Петрова",
+      "firstName": "Мария",
+      "surname": "Максимовна",
+      "birthDate": "15.01.2007",
+      "GPA": 4.97
+    },
+    {
+      "lastName": "Матвеева",
+      "firstName": "София",
+      "surname": "Евгеньевна",
+      "birthDate": "16.09.2012",
+      "GPA": 2.51
+    },
+    {
+      "lastName": "Виноградова",
+      "firstName": "София",
+      "surname": "Елисеевна",
+      "birthDate": "20.03.2009",
+      "GPA": 3.78
+    },
+    {
+      "lastName": "Корнева",
+      "firstName": "Надежда",
+      "surname": "Максимовна",
+      "birthDate": "06.07.2010",
+      "GPA": 2.77
+    },
+    {
+      "lastName": "Семенова",
+      "firstName": "Евгения",
+      "surname": "Дмитриевна",
+      "birthDate": "06.06.2010",
+      "GPA": 3.18
+    }
+  ]
+}
