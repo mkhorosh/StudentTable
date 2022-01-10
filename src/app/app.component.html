@@ -1,14 +1,28 @@
 <h1>Таблица учеников</h1>
+
+
+
 <div class="settings">
 
 
 
 
-<div class="search">
-  <input #input_text  class="search_input" type="text" placeholder="Введите имя и/или фамилию ученика...">
-  <input type="button" value="Поиск" (click)="findStudent(input_text.value)">
-</div>
+<div class="searchANDbuttons">
 
+  <div class="search">
+    <input #input_text  class="search_input" type="text" placeholder="Введите имя и/или фамилию ученика...">
+    <input type="button" value="Поиск" (click)="findStudent(input_text.value)">
+  </div>
+
+
+
+    <div [ngSwitch]="highlightBadMarks" class="bad_marks_button">
+      <button *ngSwitchCase="true" (click)="this.highlightBadMarks=false">Не подсвечивать плохие оценки</button>
+      <button *ngSwitchCase="false" (click)="this.highlightBadMarks=true">Подсветить плохие оценки</button>
+      <button *ngSwitchDefault></button>
+    </div>
+  <button (click)="clearFilters()" class="clear_filters">Сбросить фильтры</button>
+</div>
 
 <div class="filters">
   <div class="mark_filter">
@@ -24,17 +38,14 @@
     <label>Максимальная дата:<input #maxDate type="date"></label>
     <input type="button" value="Показать фильтр по дате" (click)="filterByDate(minDate.value, maxDate.value)">
   </div>
-</div>
 
 
-<div class="bottom_buttons">
-  <button (click)="clearFilters()" class="clear_filters">Сбросить фильтры</button>
-  <div [ngSwitch]="highlightBadMarks" class="bad_marks_button">
-    <button *ngSwitchCase="true" (click)="this.highlightBadMarks=false">Не подсвечивать плохие оценки</button>
-    <button *ngSwitchCase="false" (click)="this.highlightBadMarks=true">Подсветить плохие оценки</button>
-    <button *ngSwitchDefault></button>
-  </div>
 </div>
+
+  <app-forms [student]="selectedStudent" (byAdd)="addStudent($event)" [option]="getOption()" (byEdit)="editStudent($event)"
+             (byCancel)="cancelEdit()">
+  </app-forms>
+
 
 </div>
 
@@ -43,6 +54,7 @@
 <div class="student_table">
 <table>
   <tr>
+    <th (click)="sortById()">id</th>
     <th (click)="sortByLastName()">Фамилия</th>
     <th (click)="sortByName()">Имя</th>
     <th (click)="sortBySurname()">Отчество</th>
@@ -50,8 +62,10 @@
     <th (click)="sortByGPA()">Средний балл</th>
   </tr>
   <tr *ngFor="let student of this.students"
-      [class]="generateClass(student)" (dblclick)="student.deleted=true; this.showDeleteAlert=true">
+      [class]="generateClass(student)" (dblclick)="student.deleted=true; this.showDeleteAlert=true"
+      (click)="this.selectedStudent=student; student.selectedToEdit=true">
     <ng-container *ngIf="!student.hideByFilter">
+      <td> {{student.id}}</td>
       <td> {{student.lastName}}</td>
       <td> {{student.firstName}}</td>
       <td> {{student.surname}}</td>
@@ -71,4 +85,6 @@
     <button (click)="showDeleteAlert=false">Нет</button>
   </div>
 </div>
+
+
 

@@ -1,14 +1,31 @@
 export class Student{
-  private readonly _lastName: string;
-  private readonly _firstName: string;
-  private readonly _surname: string;
-  private readonly _birthDate: Date;
-  private readonly _gpa: number;
+  get id(): number {
+    return this._id;
+  }
+
+  set id(value: number) {
+    this._id = value;
+  }
+  get selectedToEdit(): boolean {
+    return this._selectedToEdit;
+  }
+
+  set selectedToEdit(value: boolean) {
+    this._selectedToEdit = value;
+  }
+  private _id: number;
+  _lastName: string;
+  _firstName: string;
+  _surname: string;
+  _birthDate: Date;
+  _gpa: number;
   private _selected: boolean = false;
   private _hideByFilter: boolean = false;
   private _deleted: boolean = false;
+  private _selectedToEdit: boolean = false;
 
-  constructor(lastName: string, firstName: string, surname: string, birthDate: string, gpa: number) {
+  constructor(id: number, lastName: string, firstName: string, surname: string, birthDate: string, gpa: number) {
+    this._id = id;
     this._lastName = lastName;
     this._firstName = firstName;
     this._surname = surname;

@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import data from "../data/list.json";
 import { Student } from "./Student";
 
+
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -9,16 +11,32 @@ import { Student } from "./Student";
 })
 
 export class AppComponent {
+  get maxId(): number {
+    return this._maxId;
+  }
+
+  set maxId(value: number) {
+    this._maxId = value;
+  }
+
   private _students: Array<Student> = [];
   private _highlightBadMarks: boolean = true;
   private _showDeleteAlert: boolean = false;
+  private _selectedStudent: Student | undefined;
+  private _maxId: number;
+  title: string = "StudentTable";
 
   constructor() {
+    this._maxId = 0;
     for (const student of data.studentArray){
-      const newbie: Student = new Student(student["lastName"], student["firstName"], student["surname"], student["birthDate"],
+      const newbie: Student = new Student(student["id"], student["lastName"], student["firstName"], student["surname"], student["birthDate"],
         student["GPA"]);
       this._students.push(newbie);
+      if (student["id"] > this._maxId){
+        this._maxId = student["id"];
+      }
     }
+    this._maxId++;
   }
 
   get students(): Array<Student> {
@@ -36,6 +54,14 @@ export class AppComponent {
   }
   set showDeleteAlert(value: boolean) {
     this._showDeleteAlert = value;
+  }
+
+  get selectedStudent(): Student | undefined {
+    return this._selectedStudent;
+  }
+
+  set selectedStudent(value: Student | undefined) {
+    this._selectedStudent = value;
   }
 
   generateClass(student: Student): string {
@@ -112,6 +138,49 @@ export class AppComponent {
       }
     }
   }
+
+  addStudent(newbie: Student): void {
+    newbie.id = this._maxId;
+    this._maxId++;
+    this.students.push(newbie);
+  }
+
+  getOption(): string{
+    if (this.selectedStudent){
+      return "edit";
+    }
+    return "add";
+  }
+
+  editStudent(st: Student): void{
+    for (const stud of this.students){
+      if (stud.selectedToEdit){
+        stud._lastName = st.lastName;
+        stud._firstName = st.firstName;
+        stud._surname = st.surname;
+        stud._birthDate = st.birthDate;
+        stud._gpa = st.gpa;
+        stud.selectedToEdit = false;
+        break;
+      }
+    }
+    this.selectedStudent = undefined;
+  }
+
+  cancelEdit(): void{
+    for (const stud of this.students){
+      if (stud.selectedToEdit){
+        stud.selectedToEdit = false;
+        break;
+      }
+    }
+    this.selectedStudent = undefined;
+  }
+
+  sortById(): void{
+    this.students.sort((a, b) => ((a.id > b.id) ? 1 : -1));
+  }
+
 }
 
 

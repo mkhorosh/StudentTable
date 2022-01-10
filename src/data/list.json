@@ -1,20 +1,23 @@
 {
   "studentArray": [
     {
+      "id": 1,
       "lastName": "Шевцов",
       "firstName": "Егор",
       "surname": "Денисович",
-      "birthDate": "10.02.2011",
+      "birthDate": "10.02.2013",
       "GPA": 4.9
     },
     {
+      "id": 2,
       "lastName": "Горелов",
       "firstName": "Владимир",
       "surname": "Кириллович",
-      "birthDate": "20.12.2005",
+      "birthDate": "20.12.2014",
       "GPA": 2.07
     },
     {
+      "id": 3,
       "lastName": "Макаров",
       "firstName": "Савелий",
       "surname": "Михайлович",
@@ -22,27 +25,31 @@
       "GPA": 4.39
     },
     {
+      "id": 4,
       "lastName": "Мальцев",
       "firstName": "Александр",
       "surname": "Семёнович",
-      "birthDate": "05.06.2005",
+      "birthDate": "05.06.2015",
       "GPA": 4.72
     },
     {
+      "id": 5,
       "lastName": "Герасимов",
       "firstName": "Роман",
       "surname": "Егорович",
-      "birthDate": "24.11.2005",
+      "birthDate": "24.11.2015",
       "GPA": 3.59
     },
     {
+      "id": 6,
       "lastName": "Петрова",
       "firstName": "Мария",
       "surname": "Максимовна",
-      "birthDate": "15.01.2007",
+      "birthDate": "15.01.2013",
       "GPA": 4.97
     },
     {
+      "id": 7,
       "lastName": "Матвеева",
       "firstName": "София",
       "surname": "Евгеньевна",
@@ -50,24 +57,27 @@
       "GPA": 2.51
     },
     {
+      "id": 8,
       "lastName": "Виноградова",
       "firstName": "София",
       "surname": "Елисеевна",
-      "birthDate": "20.03.2009",
+      "birthDate": "20.03.2013",
       "GPA": 3.78
     },
     {
+      "id": 9,
       "lastName": "Корнева",
       "firstName": "Надежда",
       "surname": "Максимовна",
-      "birthDate": "06.07.2010",
+      "birthDate": "06.07.2014",
       "GPA": 2.77
     },
     {
+      "id": 10,
       "lastName": "Семенова",
       "firstName": "Евгения",
       "surname": "Дмитриевна",
-      "birthDate": "06.06.2010",
+      "birthDate": "06.06.2012",
       "GPA": 3.18
     }
   ]
