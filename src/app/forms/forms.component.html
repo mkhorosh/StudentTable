@@ -21,7 +21,7 @@
     </div>
 
 
-    <div *ngIf="this.showErrorMessage" class="message">
+    <div *ngIf="this.showErrorMessage && (findInvalidControls().length !== 0)" class="message">
       Incorrect input.
       {{findInvalidControls()}}
     </div>
