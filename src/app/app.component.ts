@@ -1,36 +1,28 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import data from "../data/list.json";
 import { Student } from "./Student";
-
-
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  styleUrls: ["./app.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class AppComponent {
-  get maxId(): number {
-    return this._maxId;
-  }
-
-  set maxId(value: number) {
-    this._maxId = value;
-  }
 
   private _students: Array<Student> = [];
   private _highlightBadMarks: boolean = true;
   private _showDeleteAlert: boolean = false;
   private _selectedStudent: Student | undefined;
   private _maxId: number;
-  title: string = "StudentTable";
+  title: string = "Таблица учеников";
 
   constructor() {
     this._maxId = 0;
     for (const student of data.studentArray){
-      const newbie: Student = new Student(student["id"], student["lastName"], student["firstName"], student["surname"], student["birthDate"],
-        student["GPA"]);
+      const newbie: Student = new Student(student["id"], student["lastName"], student["firstName"],
+        student["surname"], student["birthDate"], student["GPA"]);
       this._students.push(newbie);
       if (student["id"] > this._maxId){
         this._maxId = student["id"];
@@ -55,7 +47,13 @@ export class AppComponent {
   set showDeleteAlert(value: boolean) {
     this._showDeleteAlert = value;
   }
+  get maxId(): number {
+    return this._maxId;
+  }
 
+  set maxId(value: number) {
+    this._maxId = value;
+  }
   get selectedStudent(): Student | undefined {
     return this._selectedStudent;
   }
@@ -182,12 +180,9 @@ export class AppComponent {
   }
 
   onRightClick(student: Student): boolean {
-    this.selectedStudent=student;
-    student.selectedToEdit=true;
+    this.selectedStudent = student;
+    student.selectedToEdit = true;
     return false;
   }
-
-
 }
-
 

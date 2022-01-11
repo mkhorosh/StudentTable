@@ -2,19 +2,25 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
-import { FormsComponent } from "./forms/forms.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { MyFormsModule } from "./forms/myForms.module";
+import { ExcellentStudentDirective } from "./excellent-student.directive";
+import { ConvertDatePipe } from "./convert-date.pipe";
+import { ConvertGpaPipe } from "./convert-gpa.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormsComponent,
+    ConvertDatePipe,
+    ConvertGpaPipe,
+    ExcellentStudentDirective,
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    MyFormsModule,
   ],
   providers: [],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

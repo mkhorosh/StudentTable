@@ -86,7 +86,6 @@ h1{
   padding:15px;
 }
 
-
 .bad_marks{
   color:red;
 }
@@ -100,18 +99,28 @@ h1{
   position: absolute;
   top: 35%;
   left: 35%;
-
   width: 20%;
   height: 10%;
-
   padding: 40px;
-
   background: #e8e8e4;
   border: 1px solid;
 }
 
-
 .popUp_buttons{
   display: flex;
   justify-content: space-around;
+}
+
+.shine {
+  color: #4db1bc;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px #2d9da9;
+  }
+  to {
+    text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
+  }
 }

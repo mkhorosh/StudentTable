@@ -1,12 +1,14 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from "@angular/core";
 import { AbstractControl, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Student } from "../Student";
 
 @Component({
   selector: "app-forms",
   templateUrl: "./forms.component.html",
-  styleUrls: ["./forms.component.css"]
+  styleUrls: ["./forms.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class FormsComponent implements OnChanges{
 
   @Input() student: Student | undefined;

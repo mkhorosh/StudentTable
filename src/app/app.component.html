@@ -1,44 +1,37 @@
-<h1>Таблица учеников</h1>
-
-
+<h1>{{title}}</h1>
 
 <div class="settings">
-
-
-
 
 <div class="searchANDbuttons">
 
   <div class="search">
     <input #input_text  class="search_input" type="text" placeholder="Введите имя и/или фамилию ученика...">
-    <input type="button" value="Поиск" (click)="findStudent(input_text.value)">
+    <input appButton type="button" value="Поиск" (click)="findStudent(input_text.value)">
   </div>
 
-
-
-    <div [ngSwitch]="highlightBadMarks" class="bad_marks_button">
+    <div appButton [ngSwitch]="highlightBadMarks" class="bad_marks_button">
       <button *ngSwitchCase="true" (click)="this.highlightBadMarks=false">Не подсвечивать плохие оценки</button>
       <button *ngSwitchCase="false" (click)="this.highlightBadMarks=true">Подсветить плохие оценки</button>
       <button *ngSwitchDefault></button>
     </div>
-  <button (click)="clearFilters()" class="clear_filters">Сбросить фильтры</button>
+
+  <button appButton (click)="clearFilters()" class="clear_filters">Сбросить фильтры</button>
+
 </div>
 
 <div class="filters">
+
   <div class="mark_filter">
     <label>Минимальная оценка:<input #minGPA type="number" step="0.25"></label>
     <label>Максимальная оценка:<input #maxGPA type="number" step="0.25"></label>
-
-
-    <input type="button" value="Показать фильтр по оценке" (click)="filterByGPA(minGPA.value, maxGPA.value)">
+    <input appButton type="button" value="Показать фильтр по оценке" (click)="filterByGPA(minGPA.value, maxGPA.value)">
   </div>
 
   <div class="date_filter">
     <label>Минимальная дата:<input #minDate type="date"></label>
     <label>Максимальная дата:<input #maxDate type="date"></label>
-    <input type="button" value="Показать фильтр по дате" (click)="filterByDate(minDate.value, maxDate.value)">
+    <input appButton type="button" value="Показать фильтр по дате" (click)="filterByDate(minDate.value, maxDate.value)">
   </div>
-
 
 </div>
 
@@ -46,12 +39,10 @@
              (byCancel)="cancelEdit()">
   </app-forms>
 
-
 </div>
 
-
-
 <div class="student_table">
+
 <table>
   <tr>
     <th (click)="sortById()">id</th>
@@ -61,18 +52,18 @@
     <th (click)="sortByDate()">Дата рождения</th>
     <th (click)="sortByGPA()">Средний балл</th>
   </tr>
+
   <tr *ngFor="let student of this.students"
       [class]="generateClass(student)" (dblclick)="student.deleted=true; this.showDeleteAlert=true"
       (contextmenu)="onRightClick(student)">
-    <ng-container *ngIf="!student.hideByFilter">
+    <ng-container  *ngIf="!student.hideByFilter">
       <td> {{student.id}}</td>
       <td> {{student.lastName}}</td>
       <td> {{student.firstName}}</td>
       <td> {{student.surname}}</td>
-      <td> {{student.birthDate.toLocaleDateString()}}</td>
-      <td> {{student.gpa}}</td>
+      <td> {{student.birthDate | convertDate}}</td>
+      <td appExcellentStudent [mark]="student.gpa" title=""> {{student.gpa | convertGpa}}</td>
     </ng-container>
-
   </tr>
 
 </table>
@@ -85,6 +76,3 @@
     <button (click)="showDeleteAlert=false">Нет</button>
   </div>
 </div>
-
-
-
