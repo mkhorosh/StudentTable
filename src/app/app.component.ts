@@ -181,6 +181,13 @@ export class AppComponent {
     this.students.sort((a, b) => ((a.id > b.id) ? 1 : -1));
   }
 
+  onRightClick(student: Student): boolean {
+    this.selectedStudent=student;
+    student.selectedToEdit=true;
+    return false;
+  }
+
+
 }
 
 

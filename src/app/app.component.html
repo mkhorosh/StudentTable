@@ -63,7 +63,7 @@
   </tr>
   <tr *ngFor="let student of this.students"
       [class]="generateClass(student)" (dblclick)="student.deleted=true; this.showDeleteAlert=true"
-      (click)="this.selectedStudent=student; student.selectedToEdit=true">
+      (contextmenu)="onRightClick(student)">
     <ng-container *ngIf="!student.hideByFilter">
       <td> {{student.id}}</td>
       <td> {{student.lastName}}</td>
